@@ -5,7 +5,7 @@ require_relative 'hand_type'
 
 class Hand
 
-  HAND_TYPES = [HandType::TwoPair, HandType::Pair, HandType::HighCard]
+  HAND_TYPES = [HandType::ThreeOfAKind, HandType::TwoPair, HandType::Pair, HandType::HighCard]
 
   attr_reader :cards
   attr_reader :rank
@@ -63,9 +63,6 @@ class Hand
     elsif straight?
       @rank = 4
       @value = straight_value
-    elsif nOfAKind? 3
-      @rank = 3
-      @value = highestSameValue 3
     else
       @rank = hand_type.rank
       @value = hand_type.value
