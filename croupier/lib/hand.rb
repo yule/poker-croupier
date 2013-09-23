@@ -5,7 +5,7 @@ require_relative 'hand_type'
 
 class Hand
 
-  HAND_TYPES = [HandType::FourOfAKind, HandType::FullHouse, HandType::Flush, HandType::Straight, HandType::ThreeOfAKind, HandType::TwoPair, HandType::Pair, HandType::HighCard]
+  HAND_TYPES = [HandType::StraightFlush, HandType::FourOfAKind, HandType::FullHouse, HandType::Flush, HandType::Straight, HandType::ThreeOfAKind, HandType::TwoPair, HandType::Pair, HandType::HighCard]
 
   attr_reader :cards
   attr_reader :rank
@@ -48,14 +48,8 @@ class Hand
   end
 
   def calculate_rank
-    @value = @cards[-1].value
-
-    if straightFlush?
-      @rank = 8
-    else
-      @rank = hand_type.rank
-      @value = hand_type.value
-    end
+    @rank = hand_type.rank
+    @value = hand_type.value
   end
 
   def hand_type
@@ -65,57 +59,5 @@ class Hand
         return hand_type
       end
     end
-  end
-
-  def straightFlush?
-    return (flush? and straight?)
-  end
-
-  def flush?
-    count = { 'Hearts' => 0, 'Clubs' => 0, 'Diamonds' => 0, 'Spades' => 0 }
-    @cards.each do |card|
-      count[card.suit] += 1
-    end
-
-    count.each_value do |suit_count|
-      if suit_count >= 5
-        return true
-      end
-    end
-
-    return false
-  end
-
-  def straight?
-    straight_value > 0
-  end
-
-  def straight_value
-    count = 1
-    last_value = 0
-    value = 0
-
-    if has_ace()
-      count += 1
-      last_value = 1
-    end
-
-    @cards.each do |card|
-      if card.value == last_value + 1
-        count += 1
-      else
-        count = 1
-      end
-      last_value = card.value
-
-      if count >= 5
-        value = card.value
-      end
-    end
-    value
-  end
-
-  def has_ace
-    @cards[-1].rank == 'Ace'
   end
 end
