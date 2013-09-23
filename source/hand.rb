@@ -51,7 +51,10 @@ class Hand
     @value = @cards[-1].value
     @sub_value = 0
 
-    if fullHouse?
+    if nOfAKind? 4
+      @rank = 7
+      @value = highestSameValue 4
+    elsif fullHouse?
       @rank = 6
       @value = highestSameValue 3
       @sub_value = highestSameValueExcept 2, @value
