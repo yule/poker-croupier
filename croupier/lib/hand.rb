@@ -5,7 +5,7 @@ require_relative 'hand_type'
 
 class Hand
 
-  HAND_TYPES = [HandType::FullHouse, HandType::Flush, HandType::Straight, HandType::ThreeOfAKind, HandType::TwoPair, HandType::Pair, HandType::HighCard]
+  HAND_TYPES = [HandType::FourOfAKind, HandType::FullHouse, HandType::Flush, HandType::Straight, HandType::ThreeOfAKind, HandType::TwoPair, HandType::Pair, HandType::HighCard]
 
   attr_reader :cards
   attr_reader :rank
@@ -52,9 +52,6 @@ class Hand
 
     if straightFlush?
       @rank = 8
-    elsif nOfAKind? 4
-      @rank = 7
-      @value = highestSameValue 4
     else
       @rank = hand_type.rank
       @value = hand_type.value
