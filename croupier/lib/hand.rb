@@ -71,14 +71,6 @@ class Hand
     return (flush? and straight?)
   end
 
-  def fullHouse?
-    return false unless nOfAKind? 3
-
-    value = highestSameValue 3
-
-    highestSameValueExcept(2, value) > 0
-  end
-
   def flush?
     count = { 'Hearts' => 0, 'Clubs' => 0, 'Diamonds' => 0, 'Spades' => 0 }
     @cards.each do |card|
@@ -125,30 +117,5 @@ class Hand
 
   def has_ace
     @cards[-1].rank == 'Ace'
-  end
-
-
-  def highestSameValue(n)
-    highestSameValueExcept n, 0
-  end
-
-  def highestSameValueExcept(n, skipped_value)
-    value = 0
-    count = 1
-    last_value = 0
-    @cards.each do |card|
-      if card.value == last_value && card.value != skipped_value
-        count += 1
-        value = last_value if count == n
-      else
-        count = 1
-        last_value = card.value
-      end
-    end
-    value
-  end
-
-  def nOfAKind?(n)
-    highestSameValue(n) > 0
   end
 end
