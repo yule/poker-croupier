@@ -4,17 +4,19 @@ module HandType
     SUITS = %w(Spades Hearts Diamonds Clubs)
 
     def handles?
-
-      SUITS.each do |suit|
-        return true if straight_value_for_suit(suit) > 0
-      end
-
-      false
-
+      (value > 0)
     end
 
     def rank
       8
+    end
+
+    def value
+      SUITS.each do |suit|
+        value_for_suit = straight_value_for_suit(suit)
+        return value_for_suit if value_for_suit > 0
+      end
+      0
     end
 
     private
