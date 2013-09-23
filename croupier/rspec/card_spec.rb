@@ -1,6 +1,6 @@
 require 'rspec'
 
-require_relative '../source/card'
+require_relative '../lib/card'
 
 describe 'Card' do
 

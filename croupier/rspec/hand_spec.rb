@@ -1,6 +1,6 @@
 require 'rspec'
 
-require_relative '../source/hand'
+require_relative '../lib/hand'
 
 describe 'Hand' do
 
