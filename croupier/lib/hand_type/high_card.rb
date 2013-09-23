@@ -8,10 +8,5 @@ module HandType
     def rank
       0
     end
-
-    def value
-      cards[-1].value
-    end
-
   end
 end

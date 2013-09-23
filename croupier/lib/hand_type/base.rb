@@ -6,6 +6,10 @@ module HandType
       @cards = cards
     end
 
+    def value
+      cards[-1].value
+    end
+
     def nOfAKind?(n)
       highestSameValue(n) > 0
     end
