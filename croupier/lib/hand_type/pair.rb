@@ -3,7 +3,7 @@ module HandType
   class Pair < Base
 
     def handles?
-      return nOfAKind? 2
+      nOfAKind? 2
     end
 
     def rank

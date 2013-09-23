@@ -2,7 +2,7 @@ module HandType
   class HighCard < Base
 
     def handles?
-      return true
+      true
     end
 
     def rank
