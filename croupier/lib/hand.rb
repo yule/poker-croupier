@@ -1,6 +1,11 @@
 require_relative 'card'
 
+require_relative 'hand_type'
+
+
 class Hand
+
+  HAND_TYPES = [HandType::Pair, HandType::HighCard]
 
   attr_reader :cards
   attr_reader :rank
@@ -18,7 +23,7 @@ class Hand
   end
 
 
-  def defeats? other_hand
+  def defeats?(other_hand)
     return self.rank > other_hand.rank unless self.rank == other_hand.rank
     return self.value > other_hand.value unless self.value == other_hand.value
 
@@ -65,11 +70,18 @@ class Hand
       @rank = 2
       @value = highestSameValue 2
       @sub_value = highestSameValueExcept 2, @value
-    elsif nOfAKind? 2
-      @rank = 1
-      @value = highestSameValue 2
     else
-      @rank = 0
+      @rank = hand_type.rank
+      @value = hand_type.value
+    end
+  end
+
+  def hand_type
+    HAND_TYPES.each do |hand_type_class|
+      hand_type = hand_type_class.new @cards
+      if hand_type.handles?
+        return hand_type
+      end
     end
   end
 
