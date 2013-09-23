@@ -30,10 +30,6 @@ class Hand
   private
 
   def defeats_by_kick?(other_hand)
-    if sub_value > 0
-      return self.sub_value > other_hand.sub_value
-    end
-
     @cards.each_index do |index|
       break if index == 5
 
@@ -49,7 +45,6 @@ class Hand
 
   def calculate_rank
     @value = @cards[-1].value
-    @sub_value = 0
 
     if straightFlush?
       @rank = 8
@@ -59,7 +54,6 @@ class Hand
     elsif fullHouse?
       @rank = 6
       @value = highestSameValue 3
-      @sub_value = highestSameValueExcept 2, @value
     elsif flush?
       @rank = 5
     elsif straight?
