@@ -5,7 +5,6 @@ class Hand
   attr_reader :cards
   attr_reader :rank
   attr_reader :value
-  attr_reader :sub_value
 
   def initialize(*args)
     @cards = []
