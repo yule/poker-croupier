@@ -191,6 +191,26 @@ describe 'Hand' do
           should_defeat hand('10 of Diamonds', '10 of Hearts', '10 of Spades', '10 of Clubs', 'Ace of Spades')
     end
 
+    #it 'should rank identical four of a kind based on kicks' do
+    #  hand('Jack of Diamonds', 'Jack of Hearts', 'Jack of Spades', 'Jack of Clubs', 'Ace of Hearts', '9 of Clubs').
+    #      should_defeat hand('Jack of Hearts', 'Jack of Hearts', 'Jack of Spades', 'Jack of Clubs', 'Ace of Spades', '8 of Hearts')
+    #end
+
+    it 'should rank a straight flush over four of a kind' do
+      hand('10 of Spades', 'Jack of Spades', 'Queen of Spades', 'King of Spades', 'Ace of Spades').
+          should_defeat hand('Jack of Diamonds', 'Jack of Hearts', 'Jack of Spades', 'Jack of Clubs', 'Queen of Hearts')
+    end
+
+    it 'should rank a higher straight flush higher' do
+      hand('10 of Spades', 'Jack of Spades', 'Queen of Spades', 'King of Spades', 'Ace of Spades').
+        should_defeat hand('9 of Spades', '10 of Spades', 'Jack of Spades', 'Queen of Spades', 'King of Spades')
+    end
+
+    #it 'should not recognize a straight and a flush as a straight flush' do
+    #  hand('Jack of Diamonds', 'Jack of Hearts', 'Jack of Spades', 'Jack of Clubs', 'Queen of Hearts').
+    #  should_defeat hand('6 of Spades','10 of Spades', 'Jack of Spades', 'Queen of Spades', 'King of Spades', 'Ace of Hearts')
+    #end
+
   end
 
 end

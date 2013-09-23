@@ -51,7 +51,9 @@ class Hand
     @value = @cards[-1].value
     @sub_value = 0
 
-    if nOfAKind? 4
+    if straightFlush?
+      @rank = 8
+    elsif nOfAKind? 4
       @rank = 7
       @value = highestSameValue 4
     elsif fullHouse?
@@ -76,6 +78,10 @@ class Hand
     else
       @rank = 0
     end
+  end
+
+  def straightFlush?
+    return (flush? and straight?)
   end
 
   def fullHouse?
