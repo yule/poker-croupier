@@ -26,26 +26,10 @@ class Hand
   def defeats?(other_hand)
     return self.rank > other_hand.rank unless self.rank == other_hand.rank
     return self.value > other_hand.value unless self.value == other_hand.value
-
-    return defeats_by_kick?(other_hand)
   end
 
 
   private
-
-  def defeats_by_kick?(other_hand)
-    @cards.each_index do |index|
-      break if index == 5
-
-      if @cards[-index-1].value > other_hand.cards[-index-1].value
-        return true
-      elsif @cards[-index-1].value < other_hand.cards[-index-1].value
-        return false
-      end
-    end
-
-    return false
-  end
 
   def calculate_rank
     @rank = hand_type.rank
