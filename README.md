@@ -5,4 +5,4 @@ poker-croupier
 
 Robot poker croupier for poker retreats.
 
-See the [story backlog here](https://github.com/devill/poker-croupier/wiki/Story-backlog).
+Our [story board](https://trello.com/b/IqfZyfzl) is on Trello. If you would like to contribute, please request an access from [DeVill](https://github.com/devill).
