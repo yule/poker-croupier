@@ -25,7 +25,7 @@ Another way to do it would concentrate a bit more on the continuous delivery asp
 
 There are not many rules, but please keep them in mind. All rules of no limit texas hold'em apply.
 
-One of the most important rules is that there is no explicit prize for the winner (the other teams however are free to invite them for a beer after the event). Poker retreats - although tehy have a competitive feel to them - are not competitions. The emphasis should be on practice.
+One of the most important rules is that there is no explicit prize for the winner (the other teams however are free to invite them for a beer after the event). Poker retreats - although they have a competitive feel to them - are not competitions. The emphasis should be on practice.
 
 Another important rule is fair play: no one should try to exploit weekneses of the framework, or deliberately inject backdoors into its source code. Also no team should use any pre-written code. Only the language's standard library, and general purpose opensource libraries are allowed. 
 
