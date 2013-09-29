@@ -15,7 +15,7 @@ A poker retreat's aim is for participiants to practice concepts related to lean 
 
 ## The format
 
-Since no poker retreats have been organized yet the format has not been finalized. Everything below is more of a draft. Pleae feel free to contribute your thoughts.
+Since no poker retreats have been organized yet the format has not been finalized. Everything below is more of a draft. Please feel free to contribute your thoughts.
 
 One possibilty is that 45 minute coding sessions are followed by sit-n-go games played by the robots, and a short break. In this case only the last sit-n-go round counts when we determine the winner. Other rounds are just for training from which teams can deduce hypotesises, and test them in subsequent traing rounds.
 
@@ -29,7 +29,7 @@ One of the most important rules is that there is no explicit prize for the winne
 
 Another important rule is fair play: no one should try to exploit weekneses of the framework, or deliberately inject backdoors into its source code. Also no team should use any pre-written code. Only the language's standard library, and general purpose opensource libraries are allowed. 
 
-As always with any coderetreat like events: free lunch but avoid pizza.
+As with any coderetreat like event: provide a free lunch but avoid pizza.
 
 # How to get started as a contributor
 
