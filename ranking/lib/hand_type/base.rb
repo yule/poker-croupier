@@ -26,12 +26,13 @@ module HandType
       value
     end
 
-    def highestSameValueExcept(n, skipped_value)
+    def highestSameValueExcept(n, skipped_values)
+      skipped_values = [skipped_values] unless skipped_values.respond_to? :include?
       value = 0
       count = 1
       last_value = 0
       @cards.each do |card|
-        if card.value == last_value && card.value != skipped_value
+        if card.value == last_value && !(skipped_values.include? card.value)
           count += 1
           value = last_value if count == n
         else

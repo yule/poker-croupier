@@ -19,7 +19,11 @@ module HandType
     end
 
     def second_value
-      highestSameValueExcept 2, value
+      highestSameValueExcept(2, value)
+    end
+
+    def kickers
+      [[super,highestSameValueExcept(2,[value,second_value])].flatten.max]
     end
 
     private
@@ -33,7 +37,7 @@ module HandType
         end
         last_value = card.value
       end
-      return pair_count == 2
+      return pair_count >= 2
     end
 
   end
