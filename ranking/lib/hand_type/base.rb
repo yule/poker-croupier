@@ -22,6 +22,10 @@ module HandType
       5
     end
 
+    def second_value
+      value
+    end
+
     def highestSameValueExcept(n, skipped_value)
       value = 0
       count = 1

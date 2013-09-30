@@ -18,6 +18,10 @@ module HandType
       1
     end
 
+    def second_value
+      highestSameValueExcept 2, value
+    end
+
     private
 
     def has_two_pair?
